@@ -30,6 +30,7 @@ app.use(
     src: join(__dirname, 'public'),
     dest: join(__dirname, 'public'),
     outputStyle: process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
+    force: true,
     sourceMap: true
   })
 );

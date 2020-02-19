@@ -1,0 +1,12 @@
+
+{{#each places}}
+<div class="card show" style="width: 36rem;">
+  <div class="card-body">
+      <h5 class="card-title">name: "{{ name }}",</h5>
+      <h6 class="card-subtitle mb-2 text-muted">position:</h6>
+      <p class="card-text">lat: {{ location.coordinates.[1] }},</p>
+      <p class="card-text">lng: {{ location.coordinates.[0] }}</p>
+  </div>
+</div>
+{{/each}}
+    

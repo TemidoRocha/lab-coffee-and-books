@@ -21,6 +21,18 @@ router.get('/create', (req, res, next) => {
   res.render('place/create');
 });
 
+router.get('/listOfPlaces', (req, res, next) => {
+  Place.find()
+    .then(places => {
+      console.log(places);
+      res.render('place/listOfPlaces', { places });
+    })
+    .catch(error => {
+      console.log(error);
+      next(error);
+    });
+});
+
 //post methods
 router.post('/create', (req, res, next) => {
   const { name, typeOfStore, latitude, longitude } = req.body;
