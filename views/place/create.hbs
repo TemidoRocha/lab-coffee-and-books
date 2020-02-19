@@ -1,0 +1,21 @@
+<h1>Create Place</h1>
+<form action="/create" method="POST">
+  <div class="form-group">
+    <label for="name"> Name </label>
+    <input type="text" name='name' id='nameCreate' placeholder="insert name" required class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="typeOfStore"> Type </label>
+    <input type="text" name='typeOfStore' id='typeOfStoreCreate' placeholder="insert type: coffee shop or bookstore" required class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="Latitude Longitude"> Location </label>
+    <input type="number" placeholder="Latitude" name="latitude" step="any" class="form-control">
+    <br>
+    <input type="number" placeholder="Longitude" name="longitude" step="any" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary"> Submit </button>
+  
+</form>

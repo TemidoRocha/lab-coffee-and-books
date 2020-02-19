@@ -10,10 +10,12 @@ const serveFavicon = require('serve-favicon');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/user');
+const hbs = require('hbs');
 
 const app = express();
 
 // Setup view engine
+hbs.registerPartials(join(__dirname, 'views/partials'));
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -23,12 +25,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(serveFavicon(join(__dirname, 'public/images', 'favicon.ico')));
 app.use(express.static(join(__dirname, 'public')));
-app.use(sassMiddleware({
-  src: join(__dirname, 'public'),
-  dest: join(__dirname, 'public'),
-  outputStyle: process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
-  sourceMap: true
-}));
+app.use(
+  sassMiddleware({
+    src: join(__dirname, 'public'),
+    dest: join(__dirname, 'public'),
+    outputStyle: process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
+    sourceMap: true
+  })
+);
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
